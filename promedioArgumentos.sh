@@ -4,8 +4,11 @@
 
 suma=0
 for num in "$@"; do
-	echo "$num"
 	suma=$[$suma+$num]
 done
-echo "$suma"
-echo $suma/$#|bc -l
+
+#para guardar resultado de comandos en una variable, uso `
+#el comando expr regresa la respuesta de la division
+#el comando bc le da formato de flotante
+promedio=`expr $suma/$#|bc -l`
+echo $promedio 
